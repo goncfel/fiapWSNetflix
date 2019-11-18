@@ -17,12 +17,21 @@ namespace APIMovies.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// Retorna os detalhes de todos os filmes
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("Details")]
         public List<Movie> Details()
         {
             return _context.Movies.ToList();
         }
 
+        /// <summary>
+        /// Retorna os detalhes dos filmes através de uma palavra chave
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         [HttpGet("DetailsByKeyword")]
         public List<Movie> DetailsByKeyword(string key)
         {
@@ -36,6 +45,11 @@ namespace APIMovies.Controllers
             return ret;
         }
 
+        /// <summary>
+        /// Retorna o detalhe do filme por ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: Movies/Details/5
         [HttpGet("Details/{id}")]
         public Movie Details(int? id)
